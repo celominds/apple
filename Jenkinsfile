@@ -59,6 +59,7 @@ pipeline {
             agent none
             steps {
                 input 'Deploy the new UI?'
+                sh "chmod +x deployment.sh"
                 sh "./deployment.sh"
             }
         }
