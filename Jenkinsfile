@@ -28,12 +28,6 @@ pipeline {
 	}
 
 	stages {
-        stage ('Build: Docker image') {
-            agent none
-            steps {
-                sh "docker build -t apple/node-web-app ."
-            }
-        }
 		stage ('Build') {
 			steps {
 				slackSend channel: '#bangalore_dev_team',
@@ -64,7 +58,7 @@ pipeline {
 		stage ('Deployment: Docker') {
             agent none
             steps {
-                sh "docker run -p 49160:3000 -d apple/node-web-app"
+                sh "docker run -p 49160:3000 -d armourshield/apple"
             }
         }
 	}
