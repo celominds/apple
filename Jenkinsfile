@@ -1,7 +1,7 @@
 pipeline {
 	agent {
         docker { 
-			image 'node'
+			build .
 		}
     }
 	environment {
@@ -36,28 +36,22 @@ pipeline {
 			}
 		}
 		stage ('Testing') {
-            agent any
 			steps {
 				sh "mocha"
 			}
 		}
-		// stage ('Publish: Dotnet Project FDD & SCD') {
-		// 	agent {
-		// 		docker { 
-		// 			image 'microsoft/dotnet'
-		// 		}
-		// 	}
-		// 	steps {
-		// 		sh "${env.DotnetReleaseFDD}"
-		// 		sh "tar -czvf mango.tar.gz Mango/Release/*"
-		// 		sh "curl -uadmin:AP4ZpfcUDj5N2o7gJ6eP6fqgnui -T mango.tar.gz \"https://dev.celominds.com/artifactory/mango/dotnet-core/${env.JOB_NAME}-${env.BUILD_NUMBER}/mango.tar.gz\""
-		// 	}
-		// }
-		// stage ('Jfrog Artifactory: Upload') {
-		// 	steps {
-		// 		sh "curl -uadmin:AP4ZpfcUDj5N2o7gJ6eP6fqgnui -T mangodb.sql \"https://dev.celominds.com/artifactory/mango/database/${env.JOB_NAME}-${env.BUILD_NUMBER}/mangodb.sql\""
-		// 	}
-		// }
+        stage ('Release') {
+            agent any
+            steps {
+                sh "tar -czvf apple.tar.gz *"
+            }
+        }
+		stage ('Jfrog Artifactory: Upload') {
+            agent any
+			steps {
+				sh "curl -uadmin:AP4ZpfcUDj5N2o7gJ6eP6fqgnui -T apple.tar.gz  \"https://dev.celominds.com/artifactory/apple/${env.JOB_NAME}-${env.BUILD_NUMBER}/apple.tar.gz\""
+			}
+		}
 		// stage ('Jfrog Artifactory: Download') {
 		// 	steps {
 		// 		sh "cd /home/Artifactory/mango | curl -uadmin:AP4ZpfcUDj5N2o7gJ6eP6fqgnui -O \"https://dev.celominds.com/artifactory/mango/database/${env.JOB_NAME}-${env.BUILD_NUMBER}/mangodb.sql\""
