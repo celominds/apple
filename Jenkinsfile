@@ -1,7 +1,7 @@
 pipeline {
 	agent {
         dockerfile {
-            args '-t apple/node-web-app'
+            imgname '-t apple/node-web-app'
             dir '.'
             filename 'Dockerfile'
 		}
