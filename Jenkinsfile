@@ -44,13 +44,13 @@ pipeline {
 			}
 		}
         stage ('Release') {
-            agent any
+            agent none
             steps {
                 sh "tar -czvf apple.tar.gz *"
             }
         }
 		stage ('Jfrog Artifactory: Upload') {
-            agent any
+            agent none
 			steps {
 				sh "curl -uadmin:AP4ZpfcUDj5N2o7gJ6eP6fqgnui -T apple.tar.gz  \"https://dev.celominds.com/artifactory/apple/${env.JOB_NAME}-${env.BUILD_NUMBER}/apple.tar.gz\""
 			}
