@@ -59,9 +59,7 @@ pipeline {
             agent none
             steps {
                 input 'Deploy the new UI?'
-                script {
-                    docker.image('armourshield/apple').withRun('-p 49160:3000')
-                }
+                sh "./deployment.sh"
             }
         }
 	}
