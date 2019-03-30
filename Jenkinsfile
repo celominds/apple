@@ -55,15 +55,15 @@ pipeline {
 				sh "curl -uadmin:AP4ZpfcUDj5N2o7gJ6eP6fqgnui -T apple.tar.gz  \"https://dev.celominds.com/artifactory/apple/${env.JOB_NAME}-${env.BUILD_NUMBER}/apple.tar.gz\""
 			}
 		}
-		stage ('Deployment: Docker') {
-            agent {
-                label 'linux'
-            }
-            steps {
-                input 'Deploy the new UI?'
-                sh "cp -R docker-compose /home/Hosting && docker-compose up -d"
-            }
-        }
+		// stage ('Deployment: Docker') {
+        //     agent {
+        //         label 'linux'
+        //     }
+        //     steps {
+        //         input 'Deploy the new UI?'
+        //         sh "cp -R docker-compose.yml /home/Hosting && docker-compose up -d"
+        //     }
+        // }
 	}
 	post {
 		success {
