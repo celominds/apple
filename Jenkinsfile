@@ -56,7 +56,11 @@ pipeline {
 			}
 		}
 		stage ('Deployment: Docker') {
-            agent none
+            agent {
+                docker {
+                    image 'docker'
+                }
+            }
             steps {
                 input 'Deploy the new UI?'
                 sh "chmod +x deployment.sh"
