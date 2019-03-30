@@ -1,0 +1,22 @@
+{
+  "name": "apple",
+  "version": "1.0.0",
+  "description": "This application has nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/celominds/apple.git"
+  },
+  "author": "Celominds Solutions Private Limited",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/celominds/apple/issues"
+  },
+  "homepage": "https://github.com/celominds/apple#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
