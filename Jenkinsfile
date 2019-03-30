@@ -57,9 +57,7 @@ pipeline {
 		}
 		stage ('Deployment: Docker') {
             agent {
-                docker {
-                    image 'docker'
-                }
+                label 'linux'
             }
             steps {
                 input 'Deploy the new UI?'
