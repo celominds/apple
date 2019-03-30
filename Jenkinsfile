@@ -36,6 +36,11 @@ pipeline {
 			}
 		}
 		stage ('Testing') {
+            agent {
+                docker {
+                    image 'djudorange/node-gulp-mocha'
+                }
+            }
 			steps {
                 sh "npm update"
 				sh "mocha"
