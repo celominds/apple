@@ -37,7 +37,7 @@ pipeline {
 		}
 		stage ('Testing') {
 			steps {
-                sh "npm install -g gulp mocha"
+                sh "npm install"
 				sh "mocha"
 			}
 		}
