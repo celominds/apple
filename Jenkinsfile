@@ -56,10 +56,12 @@ pipeline {
 			}
 		}
 		stage ('Deployment: Docker') {
-            agent any
+            agent none
             steps {
                 input 'Deploy the new UI?'
-                sh "cd /home/Hosting && docker run -d armourshield/apple -p 49160:3000"
+                script {
+                    sh "cd /home/Hosting && docker run -d armourshield/apple -p 49160:3000"
+                }
             }
         }
 	}
