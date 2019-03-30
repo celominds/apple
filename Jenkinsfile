@@ -60,7 +60,7 @@ pipeline {
             steps {
                 input 'Deploy the new UI?'
                 script {
-                    sh "cd /home/Hosting && docker run -d armourshield/apple -p 49160:3000"
+                    sh "docker run -d armourshield/apple -p 49160:3000"
                 }
             }
         }
