@@ -39,11 +39,11 @@ pipeline {
 		}
 		stage ('Testing') {
 			steps {
-                sh "node start"
+                sh "npm start"
 				sh "mocha"
                 sh "MOCHA_FILE=./reports/junit/jenkins-test-results.xml ./node_modules/.bin/mocha test/** --reporter mocha-junit-reporter"
                 junit '**/reports/junit/*.xml'
-                sh "node stop"
+                sh "kill -9 $(ps aux | grep '\snode\s' | awk '{print $2}')"
 			}
 		}
         stage ('Release') {
