@@ -1,5 +1,9 @@
 pipeline {
-	agent any
+	agent {
+        docker { 
+			image 'node'
+		}
+    }
 	environment {
 		// Very Important; stops from overwriting on temporary files
 		HOME = '/tmp'
@@ -23,11 +27,6 @@ pipeline {
 
 	stages {
 		stage ('Build') {
-			agent {
-				docker { 
-					image 'node'
-				}
-			}
 			steps {
 				slackSend channel: '#bangalore_dev_team',
 					color: "${env.JobStartCC}",
@@ -36,11 +35,6 @@ pipeline {
 			}
 		}
 		stage ('Testing') {
-			agent {
-				docker { 
-					image 'node'
-				}
-			}
 			steps {
 				sh "mocha"
 			}
