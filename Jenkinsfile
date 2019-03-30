@@ -58,7 +58,7 @@ pipeline {
 		stage ('Deployment: Docker') {
             agent none
             steps {
-                sh "docker run -p 49160:3000 -d armourshield/apple"
+                sh "sudo docker run -p 49160:3000 -d armourshield/apple"
             }
         }
 	}
