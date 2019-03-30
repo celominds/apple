@@ -60,7 +60,7 @@ pipeline {
             steps {
                 input 'Deploy the new UI?'
                 script {
-                    sh "docker run -d armourshield/apple -p 49160:3000"
+                    docker.image('armourshield/apple').withRun('-p 49160:3000')
                 }
             }
         }
