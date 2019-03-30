@@ -8,7 +8,7 @@ var server = supertest.agent("http://localhost:3000");
 // UNIT test begin
 
 describe("Home Page Rendering",function(){
-
+  
   // #1 should return home page
   it("should return home page",function(done){
     // calling home page

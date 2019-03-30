@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="0.016" tests="2" failures="0">
-  <testsuite name="Root Suite" timestamp="2019-03-30T14:13:35" tests="0" failures="0" time="0">
+<testsuites name="Mocha Tests" time="0.035" tests="3" failures="0">
+  <testsuite name="Root Suite" timestamp="2019-03-30T14:58:33" tests="0" failures="0" time="0">
   </testsuite>
-  <testsuite name="Home Page Rendering" timestamp="2019-03-30T14:13:35" tests="1" file="D:\Repositories\GitHub\apple\test\test.js" failures="0" time="0.012">
-    <testcase name="Home Page Rendering should return home page" time="0.012" classname="should return home page">
+  <testsuite name="loading express" timestamp="2019-03-30T14:58:33" tests="3" file="D:\Repositories\GitHub\apple\test\spec.js" failures="0" time="0.035">
+    <testcase name="loading express responds to /" time="0.026" classname="responds to /">
     </testcase>
-  </testsuite>
-  <testsuite name="Test View Render" timestamp="2019-03-30T14:13:35" tests="1" file="D:\Repositories\GitHub\apple\test\test.js" failures="0" time="0.004">
-    <testcase name="Test View Render should return view page" time="0.004" classname="should return view page">
+    <testcase name="loading express responds to /test" time="0.006" classname="responds to /test">
+    </testcase>
+    <testcase name="loading express 404 everything else" time="0.003" classname="404 everything else">
     </testcase>
   </testsuite>
 </testsuites>

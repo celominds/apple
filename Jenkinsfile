@@ -39,11 +39,8 @@ pipeline {
 		}
 		stage ('Testing') {
 			steps {
-                sh "npm start"
-				sh "mocha"
-                sh "MOCHA_FILE=./reports/junit/jenkins-test-results.xml ./node_modules/.bin/mocha test/** --reporter mocha-junit-reporter"
+                sh "MOCHA_FILE=./reports/junit/jenkins-test-results.xml ./node_modules/.bin/mocha test/spec.js --reporter mocha-junit-reporter"
                 junit '**/reports/junit/*.xml'
-                sh "killall node"
 			}
 		}
         stage ('Release') {
