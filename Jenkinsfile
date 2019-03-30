@@ -1,7 +1,7 @@
 pipeline {
 	agent {
         dockerfile {
-            args '--name apple'
+            args '-t apple/node-web-app'
             dir '.'
             filename 'Dockerfile'
 		}
@@ -55,13 +55,12 @@ pipeline {
 				sh "curl -uadmin:AP4ZpfcUDj5N2o7gJ6eP6fqgnui -T apple.tar.gz  \"https://dev.celominds.com/artifactory/apple/${env.JOB_NAME}-${env.BUILD_NUMBER}/apple.tar.gz\""
 			}
 		}
-		// stage ('Jfrog Artifactory: Download') {
-		// 	steps {
-		// 		sh "cd /home/Artifactory/mango | curl -uadmin:AP4ZpfcUDj5N2o7gJ6eP6fqgnui -O \"https://dev.celominds.com/artifactory/mango/database/${env.JOB_NAME}-${env.BUILD_NUMBER}/mangodb.sql\""
-		// 		sh "cd /home/Artifactory/mango | curl -uadmin:AP4ZpfcUDj5N2o7gJ6eP6fqgnui -O \"https://dev.celominds.com/artifactory/mango/dotnet-core/${env.JOB_NAME}-${env.BUILD_NUMBER}/mango.tar.gz\""
-		// 		sh "cd /home/Artifactory/mango | tar -xvzf mango.tar.gz"
-		// 	}
-		// }
+		stage ('Deployment: Docker') {
+            agent none
+            steps {
+                sh "docker run -p 49160:3000 -d apple/node-web-app"
+            }
+        }
 	}
 	post {
 		success {
