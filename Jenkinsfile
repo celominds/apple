@@ -38,9 +38,7 @@ pipeline {
 		stage ('Testing') {
 			steps {
                 sh "npm update"
-                sh "node start"
 				sh "mocha"
-                sh "node stop"
 			}
 		}
 		// stage ('Publish: Dotnet Project FDD & SCD') {
