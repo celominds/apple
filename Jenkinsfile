@@ -36,7 +36,7 @@ pipeline {
 			}
 		}
 		stage ('Testing') {
-            agent none
+            agent any
 			steps {
 				sh "mocha"
 			}
