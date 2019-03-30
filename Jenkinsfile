@@ -28,12 +28,17 @@ pipeline {
 	}
 
 	stages {
+        stage ('Build: Docker image') {
+            agent none
+            steps {
+                sh "docker build -t apple/node-web-app ."
+            }
+        }
 		stage ('Build') {
 			steps {
 				slackSend channel: '#bangalore_dev_team',
 					color: "${env.JobStartCC}",
 					message:  "${env.JobStartSN}"
-                sh "docker build -t apple/node-web-app ."
 				sh "npm install"
                 sh "npm audit fix"
 			}
