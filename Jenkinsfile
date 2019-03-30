@@ -1,7 +1,7 @@
 pipeline {
 	agent {
         dockerfile {
-            args '-t node-web-app:latest'
+            // args '-t node-web-app:latest'
             dir '.'
             filename 'Dockerfile'
 		}
@@ -58,7 +58,7 @@ pipeline {
 		stage ('Deployment: Docker') {
             agent none
             steps {
-                sh "docker run -p 49160:3000 -d apple/node-web-app"
+                sh "docker run -p 49160:3000 -d ${imgName}"
             }
         }
 	}
