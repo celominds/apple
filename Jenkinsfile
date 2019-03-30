@@ -56,7 +56,9 @@ pipeline {
 			}
 		}
 		stage ('Deployment: Docker') {
-            agent none
+            agent {
+                label 'linux'
+            }
             steps {
                 input 'Deploy the new UI?'
                 sh "docker-compose up -d"
