@@ -56,13 +56,10 @@ pipeline {
 			}
 		}
 		stage ('Deployment: Docker') {
-            agent {
-                label 'linux'
-            }
+            agent none
             steps {
                 input 'Deploy the new UI?'
-                sh "chmod +x deployment.sh"
-                sh "./deployment.sh"
+                sh "docker-compose up -d"
             }
         }
 	}
