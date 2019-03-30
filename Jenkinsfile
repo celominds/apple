@@ -39,7 +39,11 @@ pipeline {
 		}
 		stage ('Testing') {
 			steps {
+                sh "node start"
 				sh "mocha"
+                sh "MOCHA_FILE=./reports/junit/jenkins-test-results.xml ./node_modules/.bin/mocha test/** --reporter mocha-junit-reporter"
+                junit '**/reports/junit/*.xml'
+                sh "node stop"
 			}
 		}
         stage ('Release') {

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.016" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2019-03-30T14:13:35" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="Home Page Rendering" timestamp="2019-03-30T14:13:35" tests="1" file="D:\Repositories\GitHub\apple\test\test.js" failures="0" time="0.012">
+    <testcase name="Home Page Rendering should return home page" time="0.012" classname="should return home page">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test View Render" timestamp="2019-03-30T14:13:35" tests="1" file="D:\Repositories\GitHub\apple\test\test.js" failures="0" time="0.004">
+    <testcase name="Test View Render should return view page" time="0.004" classname="should return view page">
+    </testcase>
+  </testsuite>
+</testsuites>
