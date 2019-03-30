@@ -1,7 +1,9 @@
 pipeline {
 	agent {
-        docker { 
-			build .
+        dockerfile {
+            args '--name apple'
+            dir '.'
+            filename 'Dockerfile'
 		}
     }
 	environment {
