@@ -32,6 +32,7 @@ pipeline {
 					color: "${env.JobStartCC}",
 					message:  "${env.JobStartSN}"
 				sh "npm install"
+                sh "npm audit fix"
 			}
 		}
 		stage ('Testing') {
