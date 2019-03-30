@@ -59,7 +59,7 @@ pipeline {
             agent any
             steps {
                 input 'Deploy the new UI?'
-                sh "docker run -d armourshield/apple -p 49160:3000"
+                sh "cd /home && docker run -d armourshield/apple -p 49160:3000"
             }
         }
 	}
