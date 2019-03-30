@@ -61,7 +61,7 @@ pipeline {
             }
             steps {
                 input 'Deploy the new UI?'
-                sh "docker-compose up -d"
+                sh "cp -R docker-compose /home/Hosting && docker-compose up -d"
             }
         }
 	}
