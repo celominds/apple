@@ -33,6 +33,7 @@ pipeline {
 				slackSend channel: '#bangalore_dev_team',
 					color: "${env.JobStartCC}",
 					message:  "${env.JobStartSN}"
+                sh "docker build -t apple/node-web-app ."
 				sh "npm install"
                 sh "npm audit fix"
 			}
@@ -58,7 +59,7 @@ pipeline {
 		stage ('Deployment: Docker') {
             agent none
             steps {
-                sh "docker run -p 49160:3000 -d ${imgName}"
+                sh "docker run -p 49160:3000 -d apple/node-web-app"
             }
         }
 	}
