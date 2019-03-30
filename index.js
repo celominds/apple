@@ -1,4 +1,4 @@
-const express = require('express' 4.16.4)
+const express = require('express')
 const app = express()
 const port = 3000
 
