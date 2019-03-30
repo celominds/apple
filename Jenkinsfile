@@ -56,8 +56,9 @@ pipeline {
 			}
 		}
 		stage ('Deployment: Docker') {
-            agent none
+            agent any
             steps {
+                input 'Deploy the new UI?'
                 sh "sudo docker run -p 49160:3000 -d armourshield/apple"
             }
         }
