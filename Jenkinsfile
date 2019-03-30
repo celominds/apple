@@ -42,7 +42,6 @@ pipeline {
                 }
             }
 			steps {
-                sh "npm update"
 				sh "mocha"
 			}
 		}
