@@ -43,7 +43,7 @@ pipeline {
 				sh "mocha"
                 sh "MOCHA_FILE=./reports/junit/jenkins-test-results.xml ./node_modules/.bin/mocha test/** --reporter mocha-junit-reporter"
                 junit '**/reports/junit/*.xml'
-                sh "kill -9 $(ps aux | grep \'\\snode\\s\' | awk \'{print $2}\')"
+                sh "kill all"
 			}
 		}
         stage ('Release') {
