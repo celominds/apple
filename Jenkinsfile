@@ -36,11 +36,7 @@ pipeline {
 			}
 		}
 		stage ('Testing') {
-            agent {
-                docker {
-                    image 'djudorange/node-gulp-mocha'
-                }
-            }
+            agent none
 			steps {
 				sh "mocha"
 			}
