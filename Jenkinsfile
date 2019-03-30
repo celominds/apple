@@ -33,7 +33,6 @@ pipeline {
 					message:  "${env.JobStartSN}"
 				sh "npm install"
                 sh "npm audit fix"
-                sh "npm install mocha -g"
 			}
 		}
 		stage ('Testing') {
