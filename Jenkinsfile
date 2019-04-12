@@ -52,7 +52,7 @@ pipeline {
 		stage ('Jfrog Artifactory: Upload') {
             agent none
 			steps {
-				sh "curl -uadmin:AP4ZpfcUDj5N2o7gJ6eP6fqgnui -T apple.tar.gz  \"https://dev.celominds.com/artifactory/apple/${env.JOB_NAME}-${env.BUILD_NUMBER}/apple.tar.gz\""
+				sh "curl -uadmin:AP3HGAz5C2M6Qf1Dcm3pwi6HwFq -T apple.tar.gz  \"https://dev.celominds.com/artifactory/apple/${env.JOB_NAME}-${env.BUILD_NUMBER}/apple.tar.gz\""
 			}
 		}
 		// stage ('Deployment: Docker') {
